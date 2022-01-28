@@ -121,6 +121,7 @@ REPL:
                     repl?
                     (-> (esm/dynamic-import "./nbb_repl.js")
                         (.then (fn [_mod]
+                                 (println (str "Nbb " (nbb/version)))
                                  ((-> nbb/sci-ctx deref :env deref
                                       :namespaces (get 'nbb.repl) (get 'repl)))))))
               (.then (fn [val]
